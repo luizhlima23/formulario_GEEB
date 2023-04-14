@@ -1,0 +1,109 @@
+*
+{
+    margin: 0 ;
+    padding: 0;
+    
+}
+
+
+
+
+
+input{
+    
+    color: #1670ff;
+    font-size:15pt;}
+    
+
+body {
+    font: 1em sans-serif;
+    text-align: center;
+}
+.stage {
+    border-bottom: 3px solid #444;
+    display: flex;
+    height: 330px;
+    width: 100%;
+}
+
+
+ .cloud
+{   
+    
+    position: absolute;
+    top: 249.5px;
+    left: 1091px;
+    animation-iteration-count: infinite;
+    background-color: #1872ff;
+    height: 95px;
+    width: 204px;
+    transform-origin: center;
+    background: url(public/unio-1.svg);
+    animation: 15s animate2 infinite;
+
+}
+
+.cloud2
+{   
+    
+    position: absolute; /* Deixa mexer livremente o posicionamento do objeto */
+    top: 410px; 
+    left: 1450px;
+    animation-iteration-count: infinite; 
+    background-color: #1872ff;
+    height: 85px;
+    width: 183px;
+    transform-origin: center;
+    background: url(public/unio-6.svg);
+    animation: 12s animate1 infinite;
+
+}
+
+
+.cloud3
+{   
+    
+    position: absolute; /* Deixa mexer livremente o posicionamento do objeto */
+    top: 297px; 
+    left: 1650px;
+    animation-iteration-count: infinite; 
+    background-color: #1872ff;
+    height: 37px;
+    width: 80px;
+    transform-origin: center;
+    background: url(public/unio-2.svg);
+    animation: 19s animate1 infinite;
+
+    
+
+}
+
+
+/* .animate-2 = Animação da Nuvem Azul de cima */
+
+.animate-2 {
+animation-name: animate2;
+animation-timing-function: ease;
+
+}
+@keyframes animate2
+{
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-70px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* .animate-1 = Animação da Nuvem Azul de Baixo */
+
+.animate-1 {
+    animation-name: animate1;
+    animation-timing-function: ease;
+    
+    }
+    @keyframes animate1
+    {
+        0%   { transform: translateX(0); }
+        50%  { transform: translateX(-100px); }
+        100% { transform: translateX(0); }
+    }
