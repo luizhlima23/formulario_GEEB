@@ -233,7 +233,16 @@
         </div>
       </form>
 
-    
+      <script >
+
+        function mostrar(id){
+            if(document.getElementById(id).style.display =='block'){
+              document.getElementById(id).style.display = 'none';
+            }else{
+              document.getElementById(id).style.display = 'block';
+            }
+        }
+      </script>
       
     </div>
     <div class="footer"> <h2>© 2023 Geeb Cristalina</h2></div>
