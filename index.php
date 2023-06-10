@@ -129,7 +129,7 @@
 
           <!-- Outros desencarnados -->
           <div class="row">
-          <input type="button" name="mostrar1" onclick="mostrar('ou_1')" value="Acrescentar mais um desencarnado">
+          <input type="button" class="acrescenta" name="mostrar1" onclick="mostrar('ou_1')" value="Acrescentar mais um desencarnado">
         </div>
             <!-- 1  -->
           <div class= "hidden" id="ou_1">
@@ -150,7 +150,7 @@
                   </div>
                 </div>
                 <div class="row">
-                <input type="button" name="mostrar1" onclick="mostrar('ou_2')" value="Acrescentar mais um desencarnado">
+                <input type="button" class="acrescenta" name="mostrar1" onclick="mostrar('ou_2')" value="Acrescentar mais um desencarnado">
             </div>
 
                 <!-- 2  -->
@@ -172,7 +172,7 @@
                   </div>
                 </div>
                 <div class="row">
-                <input type="button" name="mostrar1" onclick="mostrar('ou_3')" value="Acrescentar mais um desencarnado">
+                <input type="button" class="acrescenta" name="mostrar1" onclick="mostrar('ou_3')" value="Acrescentar mais um desencarnado">
             </div>
             
           </div>
@@ -181,7 +181,7 @@
                 <div class= "hidden" id="ou_3">
             <div class="row">
                 <div class="col-25">
-                  <input type="text" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado 4" >
+                  <input type="text" class="acrescenta" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado 4" >
                 </div>
                 <div class="col-75">
                   <label for="data-nascimento">Data de Desencarne:</label>
@@ -213,22 +213,7 @@
         </div>
       </form>
 
-      <script >
-          function confirmForm(){
-              if(confirm('Deseja enviar os dados do formulário? <br> Obs: os dados so podem ser enviados 1 vez por senha, confira os dados e se todos os caracteres da sua senha estão corretos!')){
-                  return true;
-              } else {
-                  return false;
-              }
-          }
-          function mostrar(id){
-              if(document.getElementById(id).style.display =='block'){
-                document.getElementById(id).style.display = 'none';
-              }else{
-                document.getElementById(id).style.display = 'block';
-              }
-          }
-      </script>
+    
       
     </div>
     <div class="footer"> <h2>© 2023 Geeb Cristalina</h2></div>
