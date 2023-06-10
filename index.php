@@ -7,25 +7,35 @@
 
         $nome = $_POST['nome'];
         $senha = $_POST['senha'];
-        $nomedesen1 = $_POST['nome_desen1'];
-        $datadesencarne = $_POST['data_desen1'];
+        $n_des1 = $_POST['n_desen1'];
+        $dt_des1 = $_POST['dt_desen1'];
         $idade = $_POST['idade'];
-        $parentesco = $_POST['parentesco'];
+        $pa_des1 = $_POST['pa_desen1'];
         $causa =$_POST['causa'];
         $motivo = $_POST['motivo'];
+        $autorizacao = $_POST['autorizacao'];
+        $n_des2 = $_POST['n_desen2'];
+        $dt_des2 = $_POST['dt_desen2'];
+        $pa_des2 = $_POST['pa_desen2'];
+        $n_des3 = $_POST['n_desen3'];
+        $dt_des3 = $_POST['dt_desen3'];
+        $pa_des3 = $_POST['pa_desen3'];
+        $n_des4 = $_POST['n_desen4'];
+        $dt_des4 = $_POST['dt_desen4'];
+        $pa_des4 = $_POST['pa_desen4'];
 
-        $checkSenha = mysqli_query($conexao, "SELECT senha FROM informacoes WHERE senha='$senha' LIMIT 1");
+        $checkSenha = mysqli_query($conexao, "SELECT senha FROM test_cartas WHERE senha='$senha' LIMIT 1");
 
     if(mysqli_num_rows($checkSenha) > 0) {
         // A senha já está em uso
-        echo  "<script>alert('A senha digitada já está em uso, tente outra senha!');</script>";
+        echo  "<script>alert('A senha digitada já está em uso!');</script>";
     } else {
         // A senha ainda não está em uso, insere as informações no banco de dados
         
           
         
-        $result = mysqli_query($conexao,"INSERT INTO informacoes(ID,nome,senha, nome_desen1, data_desen1, idade, parentesco,causa, motivo) 
-        VALUES('','$nome','$senha','$nomedesen1','$datadesencarne','$idade','$parentesco','$causa','$motivo')");
+        $result = mysqli_query($conexao,"INSERT INTO test_cartas(senha, nome, n_desen1, dt_desen1, idade, pa_desen1, causa, motivo, autorizacao, n_desen2, dt_desen2, pa_desen2, n_desen3, dt_desen3, pa_desen3, n_desen4, dt_desen4, pa_desen4) 
+        VALUES('$senha','$nome','$n_des1','$dt_des1','$idade','$pa_des1','$causa','$motivo','$autorizacao','$n_des2','$dt_des2','$pa_des2','$n_des3','$dt_des3','$pa_des3','$n_des4','$dt_des4','$pa_des4')");
         
         if($result){
             echo "<script>alert('Informações inseridas com sucesso!');</script>";
@@ -98,11 +108,11 @@
         </div>
         <div class="row">
           <div class="col-25">
-            <input type="text" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado" required>
+            <input type="text" id="n_desen1" name="n_desen1" placeholder="Nome completo do Desencarnado" required>
           </div>
           <div class="col-75">
-            <label for="data-nascimento">Data de Desencarne:</label>
-            <input type="date" style="width: 60%;" id=" data_desen1" name=" data_desen1" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" required>
+            <label for="dt_desen1">Data de Desencarne:</label>
+            <input type="date" style="width: 60%;" id=" dt_desen1" name=" dt_desen1" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" required>
           </div>
         </div>
         <div class="row">
@@ -110,41 +120,51 @@
             <input type="number" id="idade" name="idade" placeholder="Idade" required>
           </div>
           <div class="col-75">
-            <input type="text" id="parentesco" name="parentesco" placeholder="Parentesco" required>
+            <input type="text" id="pa_desen1" name="pa_desen1" placeholder="Parentesco" required>
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="parentesco">Causa:</label>
+            <label for="causa">Causa:</label>
+            <input type="radio" id="doenca" name="causa" value="Doença" required>
             <label for="doenca">Doenca</label>
-            <input type="radio" id="causa" name="causa" value="Doença" required>
+            <input type="radio" id="outro" name="causa" value="Outro" required>
             <label for="outro">Outro</label>
-            <input type="radio" id="causa" name="causa" value="Outro" required>
           </div>
           <div class="col-75">
-            <input type="text"  id="motivo" name="motivo" placeholder="Qual o motivo?">
+            <input type="text"  id="motivo" name="motivo" placeholder="Qual o motivo?" required>
           </div>
         </div>
+        <div class="row">
+          <label for="autorizacao"> Autorizo  o uso de imagem e vídeo para utilização nas redes sociais do GEEB:</label>
+          
+          <input type="radio" id="Sim" name="autorizacao" value="Sim" required>
+          <label for="Sim">Sim</label>
+          
+          <input type="radio" id="Nao" name="autorizacao" value="Nao" required>
+          <label for="Nao">Não</label>
+       
+      </div>
 
 
           <!-- Outros desencarnados -->
           <div class="row">
           <input type="button" name="mostrar1" onclick="mostrar('ou_1')" value="Acrescentar mais um desencarnado">
         </div>
-            <!-- 1  -->
+            <!-- 2  -->
           <div class= "hidden" id="ou_1">
             <div class="row">
                 <div class="col-25">
-                  <input type="text" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado 2" >
+                  <input type="text" id="n_desen2" name="n_desen2" placeholder="Nome completo do Desencarnado 2" >
                 </div>
                 <div class="col-75">
-                  <label for="data-nascimento">Data de Desencarne:</label>
-                  <input type="date" style="width: 60%;" id=" data_desen1" name=" data_desen1" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
+                  <label for="dt_desen2">Data de Desencarne:</label>
+                  <input type="date" style="width: 60%;" id=" dt_desen2" name=" dt_desen2" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
                 </div>
               </div>
               <div class="row">
                 <div class="col-25">
-                  <input type="text" id="parentesco" name="parentesco" placeholder="Parentesco" >
+                  <input type="text" id="pa_desen2" name="pa_desen2" placeholder="Parentesco" >
                   </div>
                   <div class="col-75">
                   </div>
@@ -153,20 +173,20 @@
                 <input type="button" name="mostrar1" onclick="mostrar('ou_2')" value="Acrescentar mais um desencarnado">
             </div>
 
-                <!-- 2  -->
+                <!-- 3  -->
             <div class= "hidden" id="ou_2">
             <div class="row">
                 <div class="col-25">
-                  <input type="text" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado 3">
+                  <input type="text" id="n_desen3" name="n_desen3" placeholder="Nome completo do Desencarnado 3">
                 </div>
                 <div class="col-75">
-                  <label for="data-nascimento">Data de Desencarne:</label>
-                  <input type="date" style="width: 60%;" id=" data_desen1" name=" data_desen1" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
+                  <label for="dt_desen3">Data de Desencarne:</label>
+                  <input type="date" style="width: 60%;" id="dt_desen3" name=" dt_desen3" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
                 </div>
               </div>
               <div class="row">
                 <div class="col-25">
-                  <input type="text" id="parentesco" name="parentesco" placeholder="Parentesco" >
+                  <input type="text" id="pa_desen3" name="pa_desen3" placeholder="Parentesco" >
                   </div>
                   <div class="col-75">
                   </div>
@@ -177,20 +197,20 @@
             
           </div>
 
-                <!-- 3 -->
+                <!-- 4 -->
                 <div class= "hidden" id="ou_3">
             <div class="row">
                 <div class="col-25">
-                  <input type="text" id="nome_desen1" name="nome_desen1" placeholder="Nome completo do Desencarnado 4" >
+                  <input type="text" id="n_desen4" name="n_desen4" placeholder="Nome completo do Desencarnado 4" >
                 </div>
                 <div class="col-75">
-                  <label for="data-nascimento">Data de Desencarne:</label>
-                  <input type="date" style="width: 60%;" id=" data_desen1" name=" data_desen1" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
+                  <label for="dt_desen4">Data de Desencarne:</label>
+                  <input type="date" style="width: 60%;" id="dt_desen4" name="dt_desen4" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
                 </div>
               </div>
               <div class="row">
                 <div class="col-25">
-                  <input type="text" id="parentesco" name="parentesco" placeholder="Parentesco" >
+                  <input type="text" id="pa_desen4" name="pa_desen4" placeholder="Parentesco" >
                   </div>
                   <div class="col-75">
                   </div>
@@ -214,13 +234,14 @@
       </form>
 
       <script >
-          function confirmForm(){
-              if(confirm('Deseja enviar os dados do formulário? <br> Obs: os dados so podem ser enviados 1 vez por senha, confira os dados e se todos os caracteres da sua senha estão corretos!')){
-                  return true;
-              } else {
-                  return false;
-              }
-          }
+          
+          // function confirmForm(){
+          //     if(confirm('Deseja enviar os dados do formulário? <br> Obs: os dados so podem ser enviados 1 vez por senha, confira os dados e se todos os caracteres da sua senha estão corretos!')){
+          //         return true;
+          //     } else {
+          //         return false;
+          //     }
+          // }
           function mostrar(id){
               if(document.getElementById(id).style.display =='block'){
                 document.getElementById(id).style.display = 'none';
