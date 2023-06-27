@@ -29,11 +29,11 @@
         if (empty($dt_des2)) {
           $dt_des2 = null;
       }
-      
+    
       if (empty($dt_des3)) {
-          $dt_des3 = null;
+          $dt_des3 = null; 
       }
-      
+    
       if (empty($dt_des4)) {
           $dt_des4 = null;
       }
@@ -173,7 +173,7 @@
                 </div>
                 <div class="col-75">
                   <label for="dt_desen2">Data de Desencarne:</label>
-                  <input type="date" style="width: 60%;" id=" dt_desen2" name="dt_desen2" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
+                  <input type="date" style="width: 60%;" id="dt_desen2" name="dt_desen2" placeholder="Data do desencarne" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" alt="Informe a data de desencarne" >
                 </div>
               </div>
               <div class="row">

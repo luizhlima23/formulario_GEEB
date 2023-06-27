@@ -1,17 +1,17 @@
 <?php
-$dbHost ='192.169.80.50' ;
-$dbUsername = 'geebcristalina_cartas' ;
-$dbPassword  ='12!@Cartas';
-$dbName = 'geebcristalina_cartasconsoladoras' ;
+$dbHost ='localhost' ;
+$dbUsername = 'root' ;
+$dbPassword  ='';
+$dbName = 'test' ;
 $conexao = new mysqli($dbHost, $dbUsername,$dbPassword, $dbName);
-if($conexao -> connect_errno){
-echo "Erro" ;
+// if($conexao -> connect_errno){
+// echo "Erro" ;
 
-}
-else
-{
+// }
+// else
+// {
     
-    echo "conexão efetuada" ;
-}
+//     echo "conexão efetuada" ;
+// }
 
 ?>
